@@ -1,5 +1,6 @@
 global start
 extern long_mode_start
+
 section .text
 bits 32
 start:
@@ -94,7 +95,7 @@ enable_paging:
     mov cr4, eax
 
     ; enable long mode
-    mov eax, 0xC0000080
+    mov ecx, 0xC0000080
     rdmsr
     or eax, 1 << 8
     wrmsr
